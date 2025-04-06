@@ -153,6 +153,11 @@
      $ git log --oneline
      ```
 
+<<<<<<< HEAD
+=======
+     ![alt text](image-18.png)
+
+>>>>>>> bugfix/rollback-feature
    - Crea una nueva rama `bugfix/rollback-feature` desde ese commit:
 
      ```bash
@@ -160,6 +165,11 @@
      $ git checkout bugfix/rollback-feature
      ```
 
+<<<<<<< HEAD
+=======
+     ![alt text](image.png)
+
+>>>>>>> bugfix/rollback-feature
 2. **Modificar y confirmar cambios en la nueva rama:**
 
    - Realiza algunas modificaciones en `main.py` que simulen una corrección de errores:
