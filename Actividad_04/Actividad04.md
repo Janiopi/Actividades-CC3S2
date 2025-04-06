@@ -92,15 +92,24 @@
      $ git log --author="TuNombre"
      ```
 
+     ![alt text](image-9.png)
+
 3. **Revertir un commit:**
 
-   - Imagina que el commit más reciente en `main.py` no debería haberse hecho. Usa `git revert` para revertir ese commit:
+   ```bash
+   $ git revert HEAD
+   ```
 
-     ```bash
-     $ git revert HEAD
-     ```
+   Añadiremos un txt en blanco, haremos un commit y luego revertiremos.
+   ![alt text](image-10.png)
+
+   ![alt text](image-11.png)
 
    - Verifica que el commit de reversión ha sido añadido correctamente al historial.
+
+   ![alt text](image-12.png)
+
+   ![alt text](image-13.png)
 
 4. **Rebase interactivo:**
 
@@ -112,6 +121,9 @@
      ```
 
    - En el editor que se abre, combina los últimos tres commits en uno solo utilizando la opción `squash`.
+     ![alt text](image-15.png)
+
+   ![alt text](image-16.png)
 
 5. **Visualización gráfica del historial:**
 
@@ -121,7 +133,11 @@
      $ git log --graph --oneline --all
      ```
 
+     ![alt text](image-17.png)
+
    - Reflexiona sobre cómo el historial de tu proyecto se visualiza en este formato. ¿Qué información adicional puedes inferir?
+
+   Se puede observar como los commits iniciales siguen una secuencia lineal, hasta que se crea una nueva rama. Posteriormente en esa rama se realizan otros commits, hasta que es fusionada con la principal.
 
 #### Ejercicio 3: Creación y gestión de ramas desde commits específicos
 
