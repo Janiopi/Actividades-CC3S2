@@ -229,12 +229,15 @@ Copia del repositorio [https://github.com/Janiopi/Actividades-CC3S2]
      ```python
      print('This change will be reset')
      ```
+     ![alt text](image-20.png)
    - Añade y confirma los cambios:
 
      ```bash
      $ git add main.py
      $ git commit -m "Introduce a change to be reset"
      ```
+
+     ![alt text](image-21.png)
 
 2. **Usar git reset para deshacer el commit:**
 
