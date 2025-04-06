@@ -27,15 +27,15 @@
 
    - Añade y confirma estos cambios en la rama `feature/advanced-feature`:
 
-   ![alt text](image.png)
+   ![alt text](image_1.png)
 
 3. **Simular un desarrollo paralelo en la rama main:**
 
    - Cambia de nuevo a la rama `main`:
-     ![alt text](image-1.png)
+     ![alt text](image-1_1.png)
 
    - Edita el archivo `main.py` de forma diferente (por ejemplo, cambia el mensaje del print original):
-     ![alt text](image-2.png)
+     ![alt text](image-2_1.png)
    - Añade y confirma estos cambios en la rama `main`:
 
      ![alt text](image-3.png)
@@ -153,11 +153,8 @@
      $ git log --oneline
      ```
 
-<<<<<<< HEAD
-=======
      ![alt text](image-18.png)
 
->>>>>>> bugfix/rollback-feature
    - Crea una nueva rama `bugfix/rollback-feature` desde ese commit:
 
      ```bash
@@ -165,24 +162,25 @@
      $ git checkout bugfix/rollback-feature
      ```
 
-<<<<<<< HEAD
-=======
-     ![alt text](image.png)
+     ![alt text](image-1_1.png)
 
->>>>>>> bugfix/rollback-feature
 2. **Modificar y confirmar cambios en la nueva rama:**
 
    - Realiza algunas modificaciones en `main.py` que simulen una corrección de errores:
+
      ```python
      def greet():
          print('Fixed bug in feature')
      ```
+
    - Añade y confirma los cambios en la nueva rama:
 
      ```bash
      $ git add main.py
      $ git commit -m "Fix bug in rollback feature"
      ```
+
+     ![alt text](image.png)
 
 3. **Fusionar los cambios en la rama principal:**
 
@@ -193,6 +191,8 @@
      $ git merge bugfix/rollback-feature
      ```
 
+     ![alt text](image-1.png)
+
 4. **Explorar el historial después de la fusión:**
 
    - Usa `git log` y `git log --graph` para ver cómo se ha integrado el commit en el historial:
@@ -201,6 +201,8 @@
      $ git log --graph --oneline
      ```
 
+     ![alt text](image-2.png)
+
 5. **Eliminar la rama bugfix/rollback-feature:**
 
    - Una vez fusionados los cambios, elimina la rama `bugfix/rollback-feature`:
@@ -208,6 +210,12 @@
      ```bash
      $ git branch -d bugfix/rollback-feature
      ```
+
+     ![alt text](image-19.png)
+
+**Se utilizará una copia del repositorio para los siguientes ejercicios con el fin de evitar comprometer el principal**
+
+Copia del repositorio [https://github.com/Janiopi/Actividades-CC3S2]
 
 #### Ejercicio 4: Manipulación y restauración de commits con git reset y git restore
 
