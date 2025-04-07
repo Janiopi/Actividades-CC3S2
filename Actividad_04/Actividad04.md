@@ -247,7 +247,11 @@ Copia del repositorio [https://github.com/Janiopi/Actividades-CC3S2]
      $ git reset --hard HEAD~1
      ```
 
+     ![alt text](image-22.png)
+
    - Verifica que el commit ha sido eliminado del historial y que el archivo ha vuelto a su estado anterior.
+
+   ![alt text](image-23.png)
 
 3. **Usar git restore para deshacer cambios no confirmados:**
 
@@ -264,7 +268,11 @@ Copia del repositorio [https://github.com/Janiopi/Actividades-CC3S2]
      $ git restore README.md
      ```
 
+     ![alt text](image-24.png)
+
    - Verifica que el cambio no confirmado ha sido revertido.
+
+   ![alt text](image-25.png)
 
 #### Ejercicio 5: Trabajo colaborativo y manejo de Pull Requests
 
@@ -272,57 +280,69 @@ Copia del repositorio [https://github.com/Janiopi/Actividades-CC3S2]
 
 **Instrucciones:**
 
-1. **Crear un nuevo repositorio remoto:**
+1.  **Crear un nuevo repositorio remoto:**
 
-   - Usa GitHub o GitLab para crear un nuevo repositorio remoto y clónalo localmente:
+    - Usa GitHub o GitLab para crear un nuevo repositorio remoto y clónalo localmente:
 
-     ```bash
-     $ git clone <URL-del-repositorio>
-     ```
+      ```bash
+      $ git clone <URL-del-repositorio>
+      ```
 
-2. **Crear una nueva rama para desarrollo de una característica:**
+2.  **Crear una nueva rama para desarrollo de una característica:**
 
-   - En tu repositorio local, crea una nueva rama `feature/team-feature`:
+    - En tu repositorio local, crea una nueva rama `feature/team-feature`:
 
-     ```bash
-     $ git branch feature/team-feature
-     $ git checkout feature/team-feature
-     ```
+           ```bash
+           $ git branch feature/team-feature
+           $ git checkout feature/team-feature
+           ```
 
-3. **Realizar cambios y enviar la rama al repositorio remoto:**
+      ![alt text](image-26.png)
 
-   - Realiza cambios en los archivos del proyecto y confírmalos:
+3.  **Realizar cambios y enviar la rama al repositorio remoto:**
 
-     ```bash
-     $ echo "print('Collaboration is key!')" > collaboration.py
-     $ git add .
-     $ git commit -m "Add collaboration script"
-     ```
+    - Realiza cambios en los archivos del proyecto y confírmalos:
 
-   - Envía la rama al repositorio remoto:
+      ```bash
+      $ echo "print('Collaboration is key!')" > collaboration.py
+      $ git add .
+      $ git commit -m "Add collaboration script"
+      ```
 
-     ```bash
-     $ git push origin feature/team-feature
-     ```
+    - Envía la rama al repositorio remoto:
 
-4. **Abrir un Pull Request:**
+      ```bash
+      $ git push origin feature/team-feature
+      ```
 
-   - Abre un Pull Request (PR) en la plataforma remota (GitHub/GitLab) para fusionar `feature/team-feature` con la rama `main`.
-   - Añade una descripción detallada del PR, explicando los cambios realizados y su propósito.
+      ![alt text](image-27.png)
 
-5. **Revisar y fusionar el Pull Request:**
+4.  **Abrir un Pull Request:**
 
-   - Simula la revisión de código, comenta en el PR y realiza cualquier cambio necesario basado en la retroalimentación.
-   - Una vez aprobado, fusiona el PR en la rama `main`.
+    - Abre un Pull Request (PR) en la plataforma remota (GitHub/GitLab) para fusionar `feature/team-feature` con la rama `main`.
+    - Añade una descripción detallada del PR, explicando los cambios realizados y su propósito.
 
-6. **Eliminar la rama remota y local:**
+    ![alt text](image-28.png)
 
-   - Después de la fusión, elimina la rama tanto local como remotamente:
+5.  **Revisar y fusionar el Pull Request:**
 
-     ```bash
-     $ git branch -d feature/team-feature
-     $ git push origin --delete feature/team-feature
-     ```
+    - Simula la revisión de código, comenta en el PR y realiza cualquier cambio necesario basado en la retroalimentación.
+
+    ![alt text](image-29.png)
+
+    - Una vez aprobado, fusiona el PR en la rama `main`.
+      ![alt text](image-30.png)
+
+6.  **Eliminar la rama remota y local:**
+
+    - Después de la fusión, elimina la rama tanto local como remotamente:
+
+      ```bash
+      $ git branch -d feature/team-feature
+      $ git push origin --delete feature/team-feature
+      ```
+
+      ![alt text](image-31.png)
 
 #### Ejercicio 6: Cherry-Picking y Git Stash
 
@@ -340,6 +360,8 @@ Copia del repositorio [https://github.com/Janiopi/Actividades-CC3S2]
      $ git commit -m "Add cherry-pick example"
      ```
 
+     ![alt text](image-32.png)
+
 2. **Crear una nueva rama y aplicar el commit específico:**
 
    - Crea una nueva rama `feature/cherry-pick` y aplícale el commit específico:
@@ -350,6 +372,10 @@ Copia del repositorio [https://github.com/Janiopi/Actividades-CC3S2]
      $ git cherry-pick <commit-hash>
      ```
 
+     ![alt text](image-33.png)
+
+   ![ ](image-34.png)
+
 3. **Guardar temporalmente cambios no confirmados:**
 
    - Realiza algunos cambios en `main.py` pero no los confirmes:
@@ -359,11 +385,15 @@ Copia del repositorio [https://github.com/Janiopi/Actividades-CC3S2]
      $ git status
      ```
 
+     ![alt text](image-35.png)
+
    - Guarda temporalmente estos cambios utilizando `git stash`:
 
      ```bash
      $ git stash
      ```
+
+     ![alt text](image-36.png)
 
 4. **Aplicar los cambios guardados:**
 
@@ -374,5 +404,10 @@ Copia del repositorio [https://github.com/Janiopi/Actividades-CC3S2]
      $ git stash pop
      ```
 
+     ![alt text](image-37.png)
+
 5. **Revisar el historial y confirmar la correcta aplicación de los cambios:**
+
    - Usa `git log` para revisar el historial de commits y verificar que todos los cambios se han aplicado correctamente.
+
+   ![alt text](image-38.png)
