@@ -78,41 +78,24 @@
 
 - Crear el archivo `trivia.py` con la clase:
 
-  ```python
-  class Question:
-      def __init__(self, description, options, correct_answer):
-          self.description = description
-          self.options = options
-          self.correct_answer = correct_answer
-
-      def is_correct(self, answer):
-          return self.correct_answer == answer
-  ```
+  ![alt text](image-6.png)
 
 - Crear el archivo `test_trivia.py` con pruebas unitarias:
+  ![alt text](image-7.png)
 
-  ```python
-  import pytest
-  from trivia import Question
-
-  def test_question_correct_answer():
-      question = Question("What is 2 + 2?", ["1", "2", "3", "4"], "4")
-      assert question.is_correct("4")
-
-  def test_question_incorrect_answer():
-      question = Question("What is 2 + 2?", ["1", "2", "3", "4"], "4")
-      assert not question.is_correct("2")
-  ```
-
+- Instalando pytest
+  ![alt text](image-8.png)
 - Ejecutar pytest para validar:
-  ```bash
-  pytest
-  ```
+  ![alt text](image-9.png)
 - Realizar commit en la rama:
+
   ```bash
   git add .
   git commit -m "Implementación de la clase Question y pruebas unitarias básicas"
   ```
+
+  ![alt text](image-10.png)
+
 - **Registro diario:** Utilizar `git diff` para ver diferencias y `git blame test_trivia.py` para asignar responsabilidad en el código.
 
 #### Día 3 - Implementación de la clase Quiz y flujo básico del juego (Sprint 1 – Parte 3)
