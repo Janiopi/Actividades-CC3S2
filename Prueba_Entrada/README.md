@@ -113,30 +113,32 @@
 
 - Crear la clase `Quiz` en `trivia.py`:
 
-  ```python
-  class Quiz:
-      def __init__(self):
-          self.questions = []
-          self.current_question_index = 0
+  ![alt text](image-11.png)
 
-      def add_question(self, question):
-          self.questions.append(question)
-
-      def get_next_question(self):
-          if self.current_question_index < len(self.questions):
-              question = self.questions[self.current_question_index]
-              self.current_question_index += 1
-              return question
-          return None
-  ```
+  ![alt text](image-12.png)
 
 - Agregar lógica de interacción básica en una función (por ejemplo, `run_quiz()` que imprima las preguntas en consola).
+  ![alt text](image-13.png)
+
+![alt text](image-14.png)
+
 - Realizar commit en la rama:
+
   ```bash
   git checkout -b feature/estructura-basic
   git add .
   git commit -m "Implementación de la clase Quiz y flujo básico del juego"
   ```
+
+  ![alt text](image-15.png)
+  ![alt text](image-16.png)
+
+- Haciendo merge en la rama develop
+  ![alt text](image-17.png)
+
+- Añadiendo tag correspondiente
+  ![alt text](image-18.png)
+
 - **Registro diario:** Utilizar `git diff` para revisar cambios y `git checkout` para navegar entre ramas.
 
 #### Día 4 - Sistema de puntuación, manejo de rondas y finalización del juego (Sprint 2)
