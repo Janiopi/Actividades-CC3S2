@@ -155,54 +155,28 @@
 
 #### Tareas y comandos Git
 
-- Modificar la clase `Quiz`:
-
-  ```python
-  class Quiz:
-      def __init__(self):
-          self.questions = []
-          self.current_question_index = 0
-          self.correct_answers = 0
-          self.incorrect_answers = 0
-
-      def add_question(self, question):
-          self.questions.append(question)
-
-      def get_next_question(self):
-          if self.current_question_index < len(self.questions):
-              question = self.questions[self.current_question_index]
-              self.current_question_index += 1
-              return question
-          return None
-
-      def answer_question(self, question, answer):
-          if question.is_correct(answer):
-              self.correct_answers += 1
-              return True
-          else:
-              self.incorrect_answers += 1
-              return False
-  ```
-
 - Actualizar las pruebas unitarias para incluir la verificación de la puntuación:
 
-  ```python
-  from trivia import Quiz, Question
+  ![alt text](image-19.png)
 
-  def test_quiz_scoring():
-      quiz = Quiz()
-      question = Question("What is 2 + 2?", ["1", "2", "3", "4"], "4")
-      quiz.add_question(question)
-      assert quiz.answer_question(question, "4") == True
-      assert quiz.correct_answers == 1
-  ```
+  ![alt text](image-20.png)
 
 - Implementar la función `run_quiz()` para el flujo de 10 rondas.
+  ![alt text](image-21.png)
+
 - Realizar commit:
   ```bash
   git add .
   git commit -m "Implementación de sistema de puntuación, manejo de rondas y finalización del juego"
   ```
+
+![alt text](image-22.png)
+
+![alt text](image-23.png)
+
+- Añadiendo el tag correspondiente  
+  ![alt text](image-24.png)
+
 - **Registro diario:** Usar `git blame` para verificar el origen de cada cambio en la clase Quiz y documentar el progreso.
 
 #### Día 5 - Mejoras en la interfaz de usuario y refinamientos (Sprint 3)
