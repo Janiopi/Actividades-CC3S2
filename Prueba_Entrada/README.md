@@ -194,44 +194,41 @@
 #### Tareas y comandos Git
 
 - Mejorar la función `run_quiz()`:
-  ```python
-  def run_quiz():
-      print("Bienvenido al juego de Trivia!")
-      print("Responde las siguientes preguntas seleccionando el número de la opción correcta.")
-      quiz = Quiz()
-      # Aquí se cargarán 10 preguntas, por ejemplo:
-      # quiz.add_question(Question(...))
-      while quiz.current_question_index < 10:
-          question = quiz.get_next_question()
-          if question:
-              print(f"Pregunta {quiz.current_question_index}: {question.description}")
-              for idx, option in enumerate(question.options):
-                  print(f"{idx + 1}) {option}")
-              answer = input("Tu respuesta: ")
-              if quiz.answer_question(question, answer):
-                  print("¡Correcto!")
-              else:
-                  print("Incorrecto.")
-          else:
-              break
-      print("Juego terminado.")
-      print(f"Preguntas contestadas: {quiz.current_question_index}")
-      print(f"Respuestas correctas: {quiz.correct_answers}")
-      print(f"Respuestas incorrectas: {quiz.incorrect_answers}")
-  ```
+  ![alt text](image-25.png)
+
+  Se refactorizo varias funciones. La funcion run_menu se ejecuta primero
+  ![alt text](image-26.png)
+
+  En esta se llama a get_questions_by_difficulty, la cual hace una query a la base de datos
+  ![alt text](image-27.png)
+
 - Realizar pruebas de la interfaz y ajustes en los mensajes.
+  ![alt text](image-28.png)
+
+  ![alt text](image-29.png)
+
 - Crear y trabajar en la rama de mejoras:
+
   ```bash
   git checkout -b feature/ui-improvements
   git add .
   git commit -m "Mejoras en la interfaz de usuario y resumen final detallado"
   ```
+
+  ![alt text](image-30.png)
+
 - Revisar cambios con `git diff` y utilizar `git blame` para asegurar que cada parte del código se documente.
 - Fusionar la rama en `develop`:
+
   ```bash
   git checkout develop
   git merge feature/ui-improvements
   ```
+
+  ![alt text](image-31.png)
+
+- Añadiendo el tag correspondiente
+  ![alt text](image-32.png)
 
 #### Día 6 - Pipeline CI/CD y pruebas de integración
 
