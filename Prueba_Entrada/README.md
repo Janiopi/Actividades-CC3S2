@@ -244,6 +244,11 @@
 
 #### Tareas y comandos Git
 
+- Agregar pruebas de integración (por ejemplo, en `tests/integration/test_api.py`):
+
+  ![alt text](image-33.png)
+  (De momento solo tenemos 2 enpoints)
+
 - Crear el archivo `.github/workflows/ci.yml` con el siguiente contenido (adaptado a las necesidades):
 
   ```yaml
@@ -274,29 +279,8 @@
               -Dsonar.sources=.
   ```
 
-- Agregar pruebas de integración (por ejemplo, en `tests/integration/test_api.py`):
-
-  ```python
-  from fastapi.testclient import TestClient
-  from main import app
-
-  client = TestClient(app)
-
-  def test_create_question():
-      response = client.post("/questions/", json={
-          "description": "What is 2 + 2?",
-          "options": ["1", "2", "3", "4"],
-          "correct_answer": "4"
-      })
-      assert response.status_code == 201
-  ```
-
 - Realizar commit:
-  ```bash
-  git checkout -b feature/ci-cd-integration
-  git add .
-  git commit -m "Configuración de pipeline CI/CD y pruebas de integración"
-  ```
+  ![alt text](image-34.png)
 - **Registro diario:** Utilizar `git diff` para confirmar la correcta integración del pipeline y documentar cada cambio.
 
 #### Día 7 - Gestión de configuración, seguridad y pruebas de rendimiento
