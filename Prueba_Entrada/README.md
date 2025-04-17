@@ -252,32 +252,63 @@
 - Crear el archivo `.github/workflows/ci.yml` con el siguiente contenido (adaptado a las necesidades):
 
   ```yaml
-  name: Python CI
+    name: CI/CD Workflow
 
   on:
     push:
-      branches: [develop, main]
+      branches:
+        - develop
+    pull_request:
+      branches:
+        - develop
 
   jobs:
     build:
       runs-on: ubuntu-latest
+
       steps:
-        - uses: actions/checkout@v2
-        - name: Set up Python
+        # Checkout the repository
+        - name: Checkout repository
+          uses: actions/checkout@v2
+
+        # Set up Python
+        - name: Set up Python 3.11
           uses: actions/setup-python@v2
           with:
-            python-version: '3.9'
-        - run: pip install -r requirements.txt
-        - run: pytest
-        - name: SonarQube Scan
-          uses: sonarsource/sonarqube-scan-action@v1
-          env:
-            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+            python-version: 3.11
+
+        # Install dependencies
+        - name: Install dependencies
+          run: |
+            python -m pip install --upgrade pip
+            pip install -r requirements.txt
+
+        # Set PYTHONPATH as environment variable for the job
+        - name: Set PYTHONPATH
+          run: echo "PYTHONPATH=$(pwd)/app:$PYTHONPATH" >> $GITHUB_ENV
+        # Run unit tests
+        - name: Run unit tests
+          run: |
+            pytest app/test/unit
+
+        # Run integration tests
+        #      - name: Run integration tests
+        #        run: |
+        #          pytest app/test/integration
+        # Run SonarCloud Analysis
+        - name: SonarCloud Scan
+          uses: sonarsource/sonarqube-scan-action@v5.0.0
           with:
             args: >
-              -Dsonar.projectKey=trivia-game-python 
-              -Dsonar.sources=.
+              -Dsonar.organization=janiopi
+              -Dsonar.projectKey=Janiopi_TriviaGame-CC3S2
+              -Dsonar.projectName=TriviaGame-CC3S2
+          env:
+            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
   ```
+
+- Tag correspondiente
+  ![alt text](image-35.png)
 
 - Realizar commit:
   ![alt text](image-34.png)
@@ -307,20 +338,14 @@
   ```
 - Modificar la aplicación para cargar variables:
 
-  ```python
-  from dotenv import load_dotenv
-  import os
-
-  load_dotenv()
-  DATABASE_URL = os.getenv("DATABASE_URL")
-  SECRET_KEY = os.getenv("SECRET_KEY")
-  ```
+![alt text](image-37.png)
+Utilizamos las variables de entorno para la conexión a la bd
 
 - Agregar pruebas de seguridad con Bandit en el pipeline:
-  ```yaml
-  - name: Run Security Scan
-    run: bandit -r .
-  ```
+
+  Resultados del análisis
+  ![alt text](image-36.png)
+
 - Crear archivo `locustfile.py` para pruebas de carga:
 
   ```python
@@ -331,6 +356,8 @@
       def play_trivia(self):
           self.client.get("/play")
   ```
+
+  (No se implementó en el proyecto)
 
 - Realizar commit final y tagging:
   ```bash
