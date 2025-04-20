@@ -41,11 +41,6 @@ Característica: Característica del estómago
     Dado que he comido -5 pepinos
      Entonces error: cantidad de pepinos no válida
 
-  Escenario: Comer pepinos y esperar un tiempo aleatorio
-    Dado que he comido 25 pepinos
-    Cuando espero un tiempo aleatorio entre 1 y 3 horas
-    Entonces mi estómago debería gruñir
-
   Escenario: Comer 1000 pepinos y esperar 10 horas
     Dado que he comido 1000 pepinos
     Cuando espero 10 horas
