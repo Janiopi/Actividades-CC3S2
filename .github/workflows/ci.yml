@@ -16,7 +16,7 @@ jobs:
 
     steps:
       - name: Clonar repositorio
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
       - name: Configurar Python
         uses: actions/setup-python@v4
@@ -36,11 +36,3 @@ jobs:
 
       - name: Ejecutar pruebas BDD con Behave
         run: behave --format pretty --outfile behave-report.txt
-
-      - name: Subir resultados como artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: reportes-de-pruebas
-          path: |
-            pytest-report.xml
-            behave-report.txt
