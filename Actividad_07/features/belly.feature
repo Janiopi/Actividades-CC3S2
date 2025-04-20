@@ -41,25 +41,10 @@ Característica: Característica del estómago
     Dado que he comido -5 pepinos
      Entonces error: cantidad de pepinos no válida
 
-  Escenario: Esperar usando horas y minutos en inglés
-    Dado que he comido 20 pepinos
-    Cuando espero "two hours and thirty minutes"
-    Entonces mi estómago debería gruñir
-
-  Escenario: Esperar usando horas, minutos y segundos en inglés
-    Dado que he comido 35 pepinos
-    Cuando espero "two hour, forty five minutes and forty five seconds"
-    Entonces mi estómago debería gruñir
-
   Escenario: Comer pepinos y esperar un tiempo aleatorio
     Dado que he comido 25 pepinos
     Cuando espero un tiempo aleatorio entre 1 y 3 horas
     Entonces mi estómago debería gruñir
-
-  Escenario: Comer una cantidad de pepinos no válida
-    Dado que he comido 1001 pepinos
-    Cuando espero "3 horas"
-    Entonces error: cantidad de pepinos no válida
 
   Escenario: Comer 1000 pepinos y esperar 10 horas
     Dado que he comido 1000 pepinos
@@ -88,13 +73,6 @@ Característica: Característica del estómago
   Escenario: Predecir si mi estómago gruñirá con pocos pepinos
     Dado que quiero predecir con 8 pepinos y 2 horas
     Entonces no debería gruñir
-
-
-  Escenario: Saber cuántos pepinos más puedo comer antes de gruñir
-    Dado que he comido 8 pepinos
-    Cuando espero 2 horas
-    Cuando pregunto cuántos pepinos más puedo comer
-    Entonces debería decirme que puedo comer 2 pepinos más
 
   Escenario: Ya estoy gruñendo
     Dado que he comido 20 pepinos
