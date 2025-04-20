@@ -23,7 +23,9 @@ class Belly:
             self.tiempo_esperado += tiempo_en_horas
 
     def esta_gruñendo(self):
-        return round(self.tiempo_esperado, 3) >= 1.5 and self.pepinos_comidos > 10
+        tiempo_suficiente = round(self.tiempo_esperado, 3) >= 1.5
+        ha_comido_mucho = self.pepinos_comidos > 10
+        return tiempo_suficiente and ha_comido_mucho
 
     def predecir_gruñidos(self, pepinos, horas):
         return horas >= 1.5 and pepinos > 10
@@ -33,5 +35,4 @@ class Belly:
             return 0
         elif self.tiempo_esperado >= 1.5:
             return max(0, 11 - self.pepinos_comidos)
-        else:
-            return "esperar más"
+        return "esperar más"
