@@ -1,0 +1,46 @@
+name: CI - Actividad 07
+
+on:
+  push:
+    branches: [Actividad_07]
+  pull_request:
+    branches: [Actividad_07]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: Actividad_07 # 👈 Ejecuta comandos desde esta carpeta
+
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v3
+
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Instalar dependencias
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Analizar código con flake8
+        run: flake8 src/
+
+      - name: Ejecutar pruebas unitarias con pytest
+        run: pytest --junitxml=pytest-report.xml
+
+      - name: Ejecutar pruebas BDD con Behave
+        run: behave --format pretty --outfile behave-report.txt
+
+      - name: Subir resultados como artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: reportes-de-pruebas
+          path: |
+            pytest-report.xml
+            behave-report.txt
