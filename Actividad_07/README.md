@@ -595,6 +595,11 @@ Modificando test_belly.py
 2. **Incluye** verificación de calidad de código (por ejemplo, flake8 o black).
 3. **Al aprobarse** el pipeline, **despliega** (si corresponde) tu aplicación o _script_ a un entorno de staging/producción.
 
+   ![alt text](image-72.png)
+
+   El pipeline se encuentra en la rama `Actividad_07`de este repositorio
+   ![alt text](image-71.png)
+
 ---
 
 #### Referencias
