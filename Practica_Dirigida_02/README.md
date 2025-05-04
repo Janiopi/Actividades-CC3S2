@@ -199,6 +199,7 @@ del menú. Recuerda que, al ejecutarlo, verás mensajes en tiempo real en la ter
 ### Preguntas
 
 - **¿Qué diferencias observas en el historial del repositorio después de restaurar un commit mediante reflog?**
+  git reflog es una herramienta que te permite ver el historial de cambios que ha tenido el puntero HEAD en tu repositorio. A diferencia de git log, que muestra los commits en la rama actual, reflog muestra todos los movimientos del HEAD, incluso aquellos que ya no están en el historial de la rama (como después de hacer un git reset o un git checkout).
 - Se incluye un nuevo commit en el historial, un "nuevo estado" alcanzado por un desplazamiento del HEAD.
 -
 
