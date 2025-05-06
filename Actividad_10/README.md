@@ -12,7 +12,7 @@ Después de completar esta actividad serás capaz de:
 **Paso 1: Instalando pytest y pytest-cov**
 
 Primero crearemos un entorno virtual de python
-![alt text](image.png)
+![alt text](screenshots/image.png)
 
 Vamos a empezar instalando pytest, que es un potente framework para pruebas en Python, y pytest-cov, que nos permitirá generar informes de cobertura de código.
 
@@ -24,7 +24,7 @@ python3 -m pip install pytest pytest-cov
 
 Esto instalará pytest para ejecutar pruebas y pytest-cov para generar informes de cobertura de código.
 
-![alt text](image-1.png)
+![alt text](screenshots/image-1.png)
 
 **Paso 2: Escribiendo y ejecutando pruebas con pytest**
 
@@ -34,7 +34,7 @@ pytest te permite escribir pruebas de manera sencilla sin necesidad de usar clas
 pytest -v
 ```
 
-![alt text](image-2.png)
+![alt text](screenshots/image-2.png)
 
 La opción -v activa el modo detallado, mostrándote qué pruebas se ejecutaron y sus resultados. Si las pruebas pasan, verás una salida con texto en verde. Si alguna prueba falla, el texto será rojo.
 
@@ -50,7 +50,7 @@ Para ejecutar las pruebas y obtener un informe de cobertura, utiliza el siguient
 pytest --cov=nombre_de_tu_paquete
 ```
 
-![alt text](image-3.png)
+![alt text](screenshots/image-3.png)
 
 Si también deseas generar un informe de cobertura en HTML para visualizarlo, puedes agregar la opción `--cov-report=html`:
 
@@ -58,11 +58,11 @@ Si también deseas generar un informe de cobertura en HTML para visualizarlo, pu
 pytest --cov=pruebas_pytest --cov-report=html
 ```
 
-![alt text](image-4.png)
+![alt text](screenshots/image-4.png)
 
 index.html generado
 
-![alt text](<Screenshot from 2025-05-06 10-41-37.png>)
+![alt text](screenshots/Screenshot from 2025-05-06 10-41-37.png)
 
 Si solo deseas medir la cobertura de un módulo específico como modulo1.py, el comando sería:
 
@@ -70,7 +70,7 @@ Si solo deseas medir la cobertura de un módulo específico como modulo1.py, el 
 pytest -v --cov=triange
 ```
 
-![alt text](image-5.png)
+![alt text](screenshots/image-5.png)
 
 Este comando generará un informe de cobertura que mostrará el porcentaje de líneas de código cubiertas por las pruebas.
 
@@ -80,7 +80,7 @@ Si deseas un informe más detallado que muestre las líneas que no están cubier
 pytest --cov=triangle --cov-report=term-missing
 ```
 
-![alt text](image-6.png)
+![alt text](screenshots/image-6.png)
 
 Este informe te mostrará las líneas de código faltantes que no han sido cubiertas por las pruebas, permitiéndote enfocarte en aquellas partes del código que necesitan más casos de prueba.
 
@@ -90,7 +90,7 @@ Si además deseas un informe en HTML con el mismo detalle, puedes combinarlo de 
 pytest --cov=triangle --cov-report=term-missing --cov-report=html
 ```
 
-![alt text](image-7.png)
+![alt text](screenshots/image-7.png)
 
 **Paso 4: Añadiendo colores automáticamente**
 
@@ -98,9 +98,9 @@ pytest ya viene con soporte de colores por defecto, por lo que no necesitas inst
 
 Si por alguna razón los colores no se muestran, puedes forzarlos con la opción `--color=yes`:
 
-![alt text](image-8.png)
+![alt text](screenshots/image-8.png)
 
-![alt text](image-9.png)
+![alt text](screenshots/image-9.png)
 
 **Paso 5: Automatizando la configuración de pytest**
 En lugar de escribir todos los parámetros de configuración cada vez que ejecutes pytest, puedes guardarlos en un archivo pytest.ini o como se ha realizado aqui setup.cfg.
@@ -173,9 +173,9 @@ pytest
 Esto ejecutará las pruebas con los parámetros definidos en el archivo de configuración, ahorrándote la necesidad de escribirlos cada vez.
 
 - Configurando nuestro setup.cfg
-  ![alt text](image-11.png)
+  ![alt text](screenshots/image-11.png)
 
 - Ejecutando
-  ![alt text](image-12.png)
+  ![alt text](screenshots/image-12.png)
 
-![alt text](image-10.png)
+![alt text](screenshots/image-10.png)
