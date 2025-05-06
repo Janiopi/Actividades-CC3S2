@@ -74,15 +74,6 @@ En este caso, el código es sencillo y no requiere refactorización inmediata. S
 
 Añadimos una prueba para eliminar un artículo del carrito.
 
-```python
-# test_shopping_cart.py
-def test_remove_item():
-    cart = ShoppingCart()
-    cart.add_item("apple", 2, 0.5)
-    cart.remove_item("apple")
-    assert cart.items == {}
-```
-
 ![alt text](image.png)
 
 ![alt text](image-3.png)
@@ -91,43 +82,12 @@ def test_remove_item():
 
 Añadimos el método `remove_item` a la clase `ShoppingCart`.
 
-```python
-# shopping_cart.py
-class ShoppingCart:
-    def __init__(self):
-        self.items = {}
-
-    def add_item(self, name, quantity, unit_price):
-        self.items[name] = {"quantity": quantity, "unit_price": unit_price}
-
-    def remove_item(self, name):
-        if name in self.items:
-            del self.items[name]
-```
-
 ![alt text](image-1.png)
 ![alt text](image-2.png)
 
 **3. Refactorizar el código si es necesario (Refactor)**
 
 Podemos mejorar el método `add_item` para manejar la adición de múltiples cantidades del mismo artículo.
-
-```python
-# shopping_cart.py
-class ShoppingCart:
-    def __init__(self):
-        self.items = {}
-
-    def add_item(self, name, quantity, unit_price):
-        if name in self.items:
-            self.items[name]["quantity"] += quantity
-        else:
-            self.items[name] = {"quantity": quantity, "unit_price": unit_price}
-
-    def remove_item(self, name):
-        if name in self.items:
-            del self.items[name]
-```
 
 ![alt text](image-4.png)
 
@@ -139,16 +99,6 @@ class ShoppingCart:
 
 Añadimos una prueba para calcular el total del carrito.
 
-```python
-# test_shopping_cart.py
-def test_calculate_total():
-    cart = ShoppingCart()
-    cart.add_item("apple", 2, 0.5)
-    cart.add_item("banana", 3, 0.75)
-    total = cart.calculate_total()
-    assert total == 2*0.5 + 3*0.75  # 2*0.5 + 3*0.75 = 1 + 2.25 = 3.25
-```
-
 ![alt text](image-6.png)
 
 ![alt text](image-7.png)
@@ -156,29 +106,6 @@ def test_calculate_total():
 **2. Implementar el código para pasar la prueba (Green)**
 
 Implementamos el método `calculate_total`.
-
-```python
-# shopping_cart.py
-class ShoppingCart:
-    def __init__(self):
-        self.items = {}
-
-    def add_item(self, name, quantity, unit_price):
-        if name in self.items:
-            self.items[name]["quantity"] += quantity
-        else:
-            self.items[name] = {"quantity": quantity, "unit_price": unit_price}
-
-    def remove_item(self, name):
-        if name in self.items:
-            del self.items[name]
-
-    def calculate_total(self):
-        total = 0
-        for item in self.items.values():
-            total += item["quantity"] * item["unit_price"]
-        return total
-```
 
 ![alt text](image-8.png)
 ![alt text](image-9.png)
@@ -246,31 +173,10 @@ El código será acumulativo, es decir, cada iteración se basará en la anterio
 
 Comenzamos escribiendo una prueba para agregar un artículo al carrito. Dado que aún no hemos implementado la funcionalidad, esta prueba debería fallar.
 
-```python
-# test_shopping_cart.py
-import pytest
-from shopping_cart import ShoppingCart
-
-def test_add_item():
-    cart = ShoppingCart()
-    cart.add_item("apple", 2, 0.5)  # nombre, cantidad, precio unitario
-    assert cart.items == {"apple": {"quantity": 2, "unit_price": 0.5}}
-```
-
 ![alt text](image-13.png)
 **2. Implementar el código para pasar la prueba (Green)**
 
 Implementamos la clase `ShoppingCart` con el método `add_item` para pasar la prueba.
-
-```python
-# shopping_cart.py
-class ShoppingCart:
-    def __init__(self):
-        self.items = {}
-
-    def add_item(self, name, quantity, unit_price):
-        self.items[name] = {"quantity": quantity, "unit_price": unit_price}
-```
 
 ![alt text](image-14.png)
 
@@ -286,15 +192,6 @@ En este caso, el código es sencillo y no requiere refactorización inmediata. S
 
 Añadimos una prueba para eliminar un artículo del carrito.
 
-```python
-# test_shopping_cart.py
-def test_remove_item():
-    cart = ShoppingCart()
-    cart.add_item("apple", 2, 0.5)
-    cart.remove_item("apple")
-    assert cart.items == {}
-```
-
 ![alt text](image-16.png)
 
 ![alt text](image-17.png)
@@ -303,42 +200,11 @@ def test_remove_item():
 
 Añadimos el método `remove_item` a la clase `ShoppingCart`.
 
-```python
-# shopping_cart.py
-class ShoppingCart:
-    def __init__(self):
-        self.items = {}
-
-    def add_item(self, name, quantity, unit_price):
-        self.items[name] = {"quantity": quantity, "unit_price": unit_price}
-
-    def remove_item(self, name):
-        if name in self.items:
-            del self.items[name]
-```
-
 ![alt text](image-18.png)
 
 **3. Refactorizar el código si es necesario (Refactor)**
 
 Podemos mejorar el método `add_item` para manejar la adición de múltiples cantidades del mismo artículo.
-
-```python
-# shopping_cart.py
-class ShoppingCart:
-    def __init__(self):
-        self.items = {}
-
-    def add_item(self, name, quantity, unit_price):
-        if name in self.items:
-            self.items[name]["quantity"] += quantity
-        else:
-            self.items[name] = {"quantity": quantity, "unit_price": unit_price}
-
-    def remove_item(self, name):
-        if name in self.items:
-            del self.items[name]
-```
 
 ![alt text](image-19.png)
 
@@ -348,16 +214,6 @@ class ShoppingCart:
 
 Añadimos una prueba para calcular el total del carrito.
 
-```python
-# test_shopping_cart.py
-def test_calculate_total():
-    cart = ShoppingCart()
-    cart.add_item("apple", 2, 0.5)
-    cart.add_item("banana", 3, 0.75)
-    total = cart.calculate_total()
-    assert total == 2*0.5 + 3*0.75  # 2*0.5 + 3*0.75 = 1 + 2.25 = 3.25
-```
-
 ![alt text](image-20.png)
 ![alt text](image-21.png)
 
@@ -365,54 +221,11 @@ def test_calculate_total():
 
 Implementamos el método `calculate_total`.
 
-```python
-# shopping_cart.py
-class ShoppingCart:
-    def __init__(self):
-        self.items = {}
-
-    def add_item(self, name, quantity, unit_price):
-        if name in self.items:
-            self.items[name]["quantity"] += quantity
-        else:
-            self.items[name] = {"quantity": quantity, "unit_price": unit_price}
-
-    def remove_item(self, name):
-        if name in self.items:
-            del self.items[name]
-
-    def calculate_total(self):
-        total = 0
-        for item in self.items.values():
-            total += item["quantity"] * item["unit_price"]
-        return total
-```
-
 ![alt text](image-22.png)
 
 **3. Refactorizar el código si es necesario (Refactor)**
 
 Podemos optimizar el método `calculate_total` utilizando comprensión de listas y la función `sum`.
-
-```python
-# shopping_cart.py
-class ShoppingCart:
-    def __init__(self):
-        self.items = {}
-
-    def add_item(self, name, quantity, unit_price):
-        if name in self.items:
-            self.items[name]["quantity"] += quantity
-        else:
-            self.items[name] = {"quantity": quantity, "unit_price": unit_price}
-
-    def remove_item(self, name):
-        if name in self.items:
-            del self.items[name]
-
-    def calculate_total(self):
-        return sum(item["quantity"] * item["unit_price"] for item in self.items.values())
-```
 
 ![alt text](image-23.png)
 
