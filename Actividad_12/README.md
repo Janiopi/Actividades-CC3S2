@@ -50,19 +50,9 @@ El siguiente código de SQLAlchemy te ayudará a hacerlo:
 
 En `pytest`, crea un fixture que ejecute estas acciones a nivel de módulo:
 
-```python
-import pytest
-from models import db  # Asegúrate de que db está correctamente importado
+![alt text](screenshots/image-2.png)
 
-@pytest.fixture(scope="module", autouse=True)
-def setup_database():
-    """Configura la base de datos antes y después de todas las pruebas"""
-    # Se ejecuta antes de todas las pruebas
-    db.create_all()
-    yield
-    # Se ejecuta después de todas las pruebas
-    db.session.close()
-```
+Un contexto de aplicación en Flask es necesario para realizar operaciones que requieren acceso a la app de flask, como realizar consultas a la bd con SQLAlchemy.
 
 Este fixture se ejecutará automáticamente antes de todas las pruebas del módulo y cerrará la sesión de la base de datos al finalizar todas las pruebas.
 
@@ -74,6 +64,8 @@ Para asegurarte de que las pruebas se ejecutan correctamente, utiliza el siguien
 pytest
 ```
 
+![alt text](screenshots/image.png)
+
 ### **Paso 2: Cargar datos de prueba**
 
 En este paso, cargarás algunos datos de prueba que serán usados durante las pruebas. Esto solo necesita hacerse una vez antes de todas las pruebas de la clase de pruebas.
@@ -84,44 +76,19 @@ En la carpeta `tests/fixtures`, hay un archivo llamado `account_data.json` que c
 
 Cargarás estos datos en una variable global llamada `ACCOUNT_DATA`. El código Python para cargar los datos es:
 
-```python
-import json
+![alt text](screenshots/image-1.png)
 
-with open('tests/fixtures/account_data.json') as json_data:
-    ACCOUNT_DATA = json.load(json_data)
-```
+Dentro del método setup_class incluimos la carga de los datos en `test/fixtures/account_data.json`
+
+El decorador `@classmethod` convierte un método en un método de clase (vinculado a la clase, no a una instancia)
 
 #### Solución
 
 Dentro de la clase de pruebas `TestAccountModel`, utiliza el método `setup_class` para cargar los datos de prueba antes de que se ejecuten las pruebas:
 
-```python
-class TestAccountModel:
-    """Modelo de Pruebas de Cuenta"""
-
-    @classmethod
-    def setup_class(cls):
-        """Conectar y cargar los datos necesarios para las pruebas"""
-        global ACCOUNT_DATA
-        with open('tests/fixtures/account_data.json') as json_data:
-            ACCOUNT_DATA = json.load(json_data)
-        print(f"ACCOUNT_DATA cargado: {ACCOUNT_DATA}")
-
-    @classmethod
-    def teardown_class(cls):
-        """Desconectar de la base de datos"""
-        pass  # Agrega cualquier acción de limpieza si es necesario
-```
+![alt text](screenshots/image-3.png)
 
 Este método se ejecuta una vez antes de todas las pruebas de la clase, cargando los datos de prueba necesarios.
-
-#### Ejecutar las pruebas
-
-Ejecuta `pytest` para asegurarte de que tu caso de prueba se ejecuta sin errores:
-
-```bash
-pytest
-```
 
 ### **Paso 3: Escribir un caso de prueba para crear una cuenta**
 
@@ -156,6 +123,8 @@ Ejecuta `pytest` para asegurarte de que la prueba pasa:
 pytest
 ```
 
+![alt text](screenshots/image-10.png)
+
 ### **Paso 4: Escribir un caso de prueba para crear todas las cuentas**
 
 Después de verificar que se puede crear una sola cuenta, ahora escribirás una prueba que cree todas las cuentas del diccionario `ACCOUNT_DATA`.
@@ -168,14 +137,7 @@ Usa un bucle `for` para cargar todos los datos del diccionario `ACCOUNT_DATA`, l
 
 Añade el siguiente método de prueba a la clase `TestAccountModel`:
 
-```python
-def test_create_all_accounts(self):
-    """Probar la creación de múltiples cuentas"""
-    for data in ACCOUNT_DATA:
-        account = Account(**data)
-        account.create()
-    assert len(Account.all()) == len(ACCOUNT_DATA)
-```
+![alt text](screenshots/image-6.png)
 
 Este método crea todas las cuentas de los datos de prueba y verifica que el número de cuentas en la base de datos coincide con el número de cuentas en `ACCOUNT_DATA`.
 
@@ -186,6 +148,8 @@ Ejecuta `pytest` para verificar si tu prueba pasa:
 ```bash
 pytest
 ```
+
+![alt text](screenshots/image-9.png)
 
 ### **Paso 5: Limpiar las tablas antes y después de cada prueba**
 
@@ -225,6 +189,8 @@ def teardown_method(self):
     db.session.remove()
 ```
 
+![alt text](screenshots/image-8.png)
+
 Estos métodos aseguran que la base de datos esté limpia antes y después de cada prueba, evitando que los datos residuales afecten a las pruebas subsecuentes.
 
 #### Ejecutar las pruebas
@@ -234,6 +200,8 @@ Ejecuta `pytest` para asegurarte de que tus pruebas pasan:
 ```bash
 pytest
 ```
+
+![alt text](screenshots/image-7.png)
 
 De esta forma, has aprendido a utilizar los diferentes tipos de fixtures disponibles en `pytest` para preparar y limpiar el estado antes y después de las pruebas, tanto a nivel de módulo como a nivel de clase y de método.
 
