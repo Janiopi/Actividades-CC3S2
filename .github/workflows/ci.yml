@@ -1,25 +1,26 @@
-name: CI - Actividad 07
+name: CI - Actividad 26 # Nombre del workflow
 
-on:
+on:                     # Evento que dispara el workflow
   push:
     branches: main
   pull_request:
     branches: main
 
-jobs:
+jobs:                    # Definición de jobs y runners
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4 # uses: Utiliza acciones predifinadas del marketplace
       
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.10'
-
+      # run: ejecuta comandos directamente en el shell
       - name: Deploy application
         run: |
-          python deploy.py
+          python deploy.py           
+        
 
 
