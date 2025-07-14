@@ -26,6 +26,7 @@ Tu equipo está desarrollando dos microservicios en Python (Users y Orders) que 
 
     
     Consideraciones adicionales:
+    
         - Volúmenes: Para un almacenamiento persistente de datos, se utilizan los volúmenes de Docker, que son áreas de almacenamiento separadas que no están sujetas a las limitaciones del sistema de archivos en capas del contenedor. 
         - Dockerfile: El Dockerfile es un archivo de texto que contiene las instrucciones para construir una imagen de Docker. 
         - Controladores de almacenamiento: Docker utiliza diferentes controladores de almacenamiento, como OverlayFS o Btrfs, para administrar el sistema de archivos en capas. 
